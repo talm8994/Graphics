@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.Frame;
+import view.Frame;
 
 public class Controller
 {
@@ -8,7 +8,7 @@ public class Controller
 	
 	public Controller()
 	{
-		baseFrame = new Frame();
+		baseFrame = new Frame(this);
 	}
 	
 	public void start()

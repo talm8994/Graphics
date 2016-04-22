@@ -4,6 +4,7 @@ import controller.Controller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -22,20 +23,27 @@ public class Panel extends JPanel
 		this.baseController= baseController;
 		baseLayout = new SpringLayout();
 		addRectangleButton = new JButton(" add shape");
-		rectagleList = new Arraylist<Rectangle>();
-		shapePanel= new ShapePanel;
+		baseLayout.putConstraint(SpringLayout.WEST, addRectangleButton, 158, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, addRectangleButton, -37, SpringLayout.SOUTH, this);
+		rectangleList = new ArrayList<Rectangle>();
+		shapePanel= new ShapePanel();
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 28, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 36, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -224, SpringLayout.NORTH, addRectangleButton);
+		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -404, SpringLayout.EAST, this);
 		
 		setupPanel();
 		setupLayout();
 		setupListeners();
-		
 	}
+	
 	private void setupPanel()
 	{
-		this.set
 		this.setLayout(baseLayout);
 		this.add(shapePanel);
+		this.add(addRectangleButton);
 	}
+	
 	private void setupLayout()
 	{
 		
@@ -46,10 +54,10 @@ public class Panel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPostion = (int)(Math.random() * getWidth());
-				int yPostion = (int)(Math.random() * getHight());
+				int xPosition = (int)(Math.random() * getWidth());
+				int yPosition = (int)(Math.random() * getHeight());
 				int width = (int)(Math.random() * 100);
-				int hight = (int)(Math.random() * 100);
+				int height = (int)(Math.random() * 100);
 				
 				rectangleList.add(new Rectangle (xPosition, yPosition, width, height));
 				

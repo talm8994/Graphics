@@ -13,12 +13,13 @@ public class Frame extends JFrame
 	public Frame(Controller baseController)
 	{
 		this.baseController = baseController;
-		basePanel = new Panel();
+		basePanel = new Panel(baseController);
 		setupFrame();
 	}
 
 	private void setupFrame()
 	{
+		this.setContentPane(basePanel);
 		this.setTitle("Chat Bot");
 		this.setResizable(false);
 		this.setSize(400,400);
