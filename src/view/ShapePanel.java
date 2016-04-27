@@ -18,24 +18,45 @@ public class ShapePanel extends JPanel
 	private ArrayList<Ellipse2D> circleList;
 	private ArrayList<Polygon> triangleList;
 	private ArrayList<Polygon> polygonList;
+	private ArrayList<Rectangle> squreList; 
 	
 	public ShapePanel()
 	{
-		
+		rectangleList = new ArrayList<Rectangle>();
+		triangleList = new ArrayList<Polygon>();
+		polygonList = new ArrayList<Polygon>();
+		ellipseList = new ArrayList<Ellipse2D>();
+		circleList = new ArrayList<Ellipse2D>();
+		squreList = new ArrayList<Rectangle>();
 	}
 	
 	public void addRectangle()
 	{
-		
+		int xPosition = (int)(Math.random() * this.getWidth());
+		 int yPosition = (int)(Math.random() * this.getHeight());
+		 int width = (int)(Math.random() * (this.getWidth() / 2));
+		 int height = (int)(Math.random() * (this.getWidth() / 2));	
+		 
+		 rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
 	}
+	
 	public void addSqure()
 	{
-		
+		int xPosition = (int)(Math.random() * this.getWidth());
+		 int yPosition = (int)(Math.random() * this.getHeight());
+		 int width = (int)(Math.random() * (this.getWidth() / 2));
+		 
+		 rectangleList.add(new Rectangle(xPosition, yPosition, width, width));
 	}
+	
 	public void addEllips()
 	{
-		 int xPosition = (int)(Math.random() * 1500);
-		 int yPosition = (int)(Math.random() * 2000);
+		int xPosition = (int)(Math.random() * this.getWidth());
+		 int yPosition = (int)(Math.random() * this.getHeight());
+		 int width = (int)(Math.random() * (this.getWidth() / 2));
+		 int height = (int)(Math.random() * (this.getWidth() / 2));	
+		 
+		 ellipseList.add(new Ellipse2D.Double(xPosition, yPosition, width, height));
 	}
 	
 	public void addPolygon()
@@ -84,6 +105,7 @@ public class ShapePanel extends JPanel
 			
 			mainGraphics.draw(currentTriangle);
 		}
+		
 		for(Polygon current : polygonList)
 		{
 			int red = (int)(Math.random()* 256);
