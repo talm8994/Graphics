@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.util.*;
 
@@ -88,6 +89,30 @@ public class ShapePanel extends JPanel
 		triangleList.add(triangle);
 	}
 	
+	private void drawShapes(Graphics2D mainGraphics, ArrayList shapes)
+	{
+		for(Object current : shapes)
+		{
+			int red = (int)(Math.random()* 256);
+			int green = (int)(Math.random()* 256);
+			int blue = (int)(Math.random()* 256);
+			int alfa = (int)(Math.random() * 42);
+			
+			int penSize = (int)(Math.random()* 10) + 3;
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(penSize));
+			if(current instanceof Polygon)
+			{
+				mainGraphics.draw((Shape)current);
+			}
+			else
+			{
+				mainGraphics.fill((Shape)current);
+			}
+			
+		}
+	}
+	
 	protected void paintConponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);;
@@ -98,6 +123,7 @@ public class ShapePanel extends JPanel
 			int red = (int)(Math.random()* 256);
 			int green = (int)(Math.random()* 256);
 			int blue = (int)(Math.random()* 256);
+			int alfa = (int)(Math.random() * 42);
 			
 			int penSize = (int)(Math.random()* 10) + 3;
 			mainGraphics.setColor(new Color(red, green, blue));
@@ -111,6 +137,8 @@ public class ShapePanel extends JPanel
 			int red = (int)(Math.random()* 256);
 			int green = (int)(Math.random()* 256);
 			int blue = (int)(Math.random()* 256);
+			int alfa = (int)(Math.random() * 42);
+			
 			
 			mainGraphics.setColor(new Color(red, green, blue));
 		}
