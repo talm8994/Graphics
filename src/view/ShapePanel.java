@@ -50,7 +50,7 @@ public class ShapePanel extends JPanel
 		 rectangleList.add(new Rectangle(xPosition, yPosition, width, width));
 	}
 	
-	public void addEllips()
+	public void addEllipse()
 	{
 		int xPosition = (int)(Math.random() * this.getWidth());
 		 int yPosition = (int)(Math.random() * this.getHeight());
@@ -112,7 +112,7 @@ public class ShapePanel extends JPanel
 			
 		}
 	}
-	
+	// this is a thing for the stuff lol
 	protected void paintConponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);;
